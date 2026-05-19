@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RISE - 4 Tahapan RISE</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      background: url('bg1.png') no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    .overlay {
+      position: relative;
+      min-height: 100vh;
+      width: 100%;
+      background: linear-gradient(135deg, rgba(30, 27, 75, 0.85) 0%, rgba(49, 46, 129, 0.85) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+</head>
+
+<body class="pt-16">
+
+  <!-- NAVBAR STICKY -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        
+        <!-- Logo / Title -->
+        <div class="flex-shrink-0">
+          <a href="index.html" class="text-2xl font-black text-blue-600">
+            RISE <span class="text-gray-700">| Langkah Awal</span>
+          </a>
+        </div>
+
+        <!-- Tombol di Navbar (Desktop) -->
+        <div class="hidden md:flex items-center gap-4">
+          <a href="rise-form.html"
+             class="bg-blue-600 text-white px-6 py-2.5 rounded-full text-base font-semibold hover:bg-blue-700 transition shadow-lg">
+            Isi RISE
+          </a>
+          <a href="ruangdiskusi.html"
+             class="bg-gray-100 text-gray-700 px-6 py-2.5 rounded-full text-base font-semibold hover:bg-gray-200 transition border border-gray-300">
+            Ruang Diskusi
+          </a>
+          <a href="login.html" class="logout-btn text-red-600 px-4 py-2 rounded-full text-base font-semibold hover:bg-red-50 transition">
+            Logout
+          </a>
+        </div>
+
+        <!-- Tombol Mobile (Hamburger Menu) -->
+        <div class="md:hidden">
+          <button id="mobile-menu-btn" class="text-gray-700 p-2 rounded-md hover:bg-gray-100">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile Menu (Dropdown) -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+      <div class="px-4 py-4 space-y-3">
+        <a href="rise-form.html"
+           class="block w-full bg-blue-600 text-white px-6 py-3 rounded-full text-base font-semibold text-center hover:bg-blue-700 transition">
+          Isi RISE
+        </a>
+        <a href="ruangdiskusi.html"
+           class="block w-full bg-gray-100 text-gray-700 px-6 py-3 rounded-full text-base font-semibold text-center hover:bg-gray-200 transition border border-gray-300">
+          Ruang Diskusi
+        </a>
+        <a href="login.html" class="logout-btn block w-full text-red-600 px-6 py-3 rounded-full text-base font-semibold text-center hover:bg-red-50">
+          Logout
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Halaman 4 Tahapan -->
+  <div class="overlay py-16 px-4">
+    
+    <!-- Form Container -->
+    <div class="max-w-3xl w-full bg-white/95 p-8 md:p-10 rounded-2xl shadow-2xl backdrop-blur-sm">
+      
+      <!-- Judul -->
+      <div class="text-center mb-10">
+        <h1 class="text-3xl md:text-4xl font-black mb-3 text-indigo-900">
+          Jawab 4 Tahapan RISE
+        </h1>
+        <p class="text-indigo-600 text-base">
+          Tuliskan jawabanmu dengan jujur untuk setiap tahapannya
+        </p>
+      </div>
+
+      <!-- Alert Error (Hidden) -->
+      <div id="alert-error" class="hidden bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg mb-6 text-center">
+        <p>Mohon isi semua kolom terlebih dahulu!</p>
+      </div>
+
+      <!-- Alert Sukses -->
+      <div id="alert-success" class="hidden bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-lg mb-6 text-center">
+        <p>✓ Jawaban tersimpan! Mengalihkan ke Ruang Diskusi...</p>
+      </div>
+
+      <!-- Form -->
+      <form id="form-rise" class="space-y-8">
+
+        <!-- TAHAP 1: REALITY -->
+        <div class="bg-red-50 rounded-2xl p-6 border border-red-100">
+          <h2 class="text-2xl font-bold text-red-600 mb-2">Tahap 1 — Reality (Realitas)</h2>
+          <p class="text-red-600 text-sm mb-4">
+            Jujurlah pada dirimu sendiri. Apa yang sedang kamu rasakan saat ini?
+          </p>
+          <label for="reality" class="block text-sm font-semibold mb-2 text-indigo-900">Apa yang paling membuatmu cemas?</label>
+          <textarea id="reality" name="reality" rows="3" placeholder="Tuliskan perasaan dan kekhawatiranmu..."
+            class="w-full px-4 py-3 rounded-xl text-gray-900 focus:ring-2 focus:ring-red-400 focus:outline-none bg-white border border-red-200"
+            required></textarea>
+        </div>
+
+        <!-- TAHAP 2: INSIGHT -->
+        <div class="bg-blue-50 rounded-2xl p-6 border border-blue-100">
+          <h2 class="text-2xl font-bold text-blue-600 mb-2">Tahap 2 — Insight (Wawasan)</h2>
+          <p class="text-blue-600 text-sm mb-4">
+            Setiap krisis menyimpan wawasan. Apa yang industri butuhkan di tahun 2026?
+          </p>
+          <label for="insight" class="block text-sm font-semibold mb-2 text-indigo-900">Apa peluang yang kamu lihat?</label>
+          <textarea id="insight" name="insight" rows="3" placeholder="Tuliskan wawasan dan peluangmu..."
+            class="w-full px-4 py-3 rounded-xl text-gray-900 focus:ring-2 focus:ring-blue-400 focus:outline-none bg-white border border-blue-200"
+            required></textarea>
+        </div>
+
+        <!-- TAHAP 3: SKILL -->
+        <div class="bg-green-50 rounded-2xl p-6 border border-green-100">
+          <h2 class="text-2xl font-bold text-green-600 mb-2">Tahap 3 — Skill (Keterampilan)</h2>
+          <p class="text-green-600 text-sm mb-4">
+            Wawasan tanpa aksi adalah mimpi. Apa senjata yang kamu butuhkan?
+          </p>
+          
+          <label for="hard_skill" class="block text-sm font-semibold mb-2 text-indigo-900">Hard Skill yang ingin diasah:</label>
+          <textarea id="hard_skill" name="hard_skill" rows="2" placeholder="Contoh: PLC, Python, desain CNC..."
+            class="w-full px-4 py-3 rounded-xl text-gray-900 focus:ring-2 focus:ring-green-400 focus:outline-none bg-white border border-green-200 mb-4"
+            required></textarea>
+            
+          <label for="soft_skill" class="block text-sm font-semibold mb-2 text-indigo-900">Soft Skill yang ingin diasah:</label>
+          <textarea id="soft_skill" name="soft_skill" rows="2" placeholder="Contoh: komunikasi, manajemen waktu..."
+            class="w-full px-4 py-3 rounded-xl text-gray-900 focus:ring-2 focus:ring-green-400 focus:outline-none bg-white border border-green-200"
+            required></textarea>
+        </div>
+
+        <!-- TAHAP 4: EXPECTATION -->
+        <div class="bg-purple-50 rounded-2xl p-6 border border-purple-100">
+          <h2 class="text-2xl font-bold text-purple-600 mb-2">Tahap 4 — Expectation (Harapan & Target)</h2>
+          <p class="text-purple-600 text-sm mb-4">
+            Buatlah janji pada dirimu sendiri: Target terukur dalam 1 tahun ke depan
+          </p>
+          <label for="target" class="block text-sm font-semibold mb-2 text-indigo-900">Target yang ingin kamu capai:</label>
+          <textarea id="target" name="target" rows="3" placeholder="Contoh: Dapat sertifikat profesional, dapat magang..."
+            class="w-full px-4 py-3 rounded-xl text-gray-900 focus:ring-2 focus:ring-purple-400 focus:outline-none bg-white border border-purple-200"
+            required></textarea>
+        </div>
+
+        <!-- Tombol Submit -->
+        <button type="submit"
+          class="w-full bg-blue-600 text-white font-bold py-4 rounded-full hover:bg-blue-700 transition transform hover:scale-105 shadow-xl">
+          Simpan & Lihat di Diskusi
+        </button>
+
+      </form>
+
+      <!-- Link Kembali -->
+      <div class="text-center mt-6 flex flex-col sm:flex-row justify-center gap-4">
+        <a href="ruangdiskusi.html" class="text-blue-600 hover:text-blue-800 text-sm transition">
+          ← Lihat Diskusi Saya
+        </a>
+        <span class="text-indigo-400 hidden sm:inline">|</span>
+        <a href="index.html" class="text-blue-600 hover:text-blue-800 text-sm transition">
+          Beranda
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Script untuk Simpan Data -->
+  <script>
+    const form = document.getElementById('form-rise');
+    const alertError = document.getElementById('alert-error');
+    const alertSuccess = document.getElementById('alert-success');
+
+    // CEK LOGIN - Jika belum login, arahkan ke login
+    const session = localStorage.getItem('rise_session');
+    if (!session) {
+      window.location.href = 'login.html';
+    }
+
+    // Saat form disubmit
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      alertError.classList.add('hidden');
+
+      // Ambil nilai dari semua input
+      const reality = document.getElementById('reality').value.trim();
+      const insight = document.getElementById('insight').value.trim();
+      const hard_skill = document.getElementById('hard_skill').value.trim();
+      const soft_skill = document.getElementById('soft_skill').value.trim();
+      const target = document.getElementById('target').value.trim();
+
+      // Validasi: Pastikan semua field terisi
+      if (!reality || !insight || !hard_skill || !soft_skill || !target) {
+        alertError.classList.remove('hidden');
+        return;
+      }
+
+      // Ambil data user yang sedang login
+      const userData = JSON.parse(localStorage.getItem('rise_user_' + session));
+
+      // Buat objek data RISE
+      const riseData = {
+        username: session,
+        identitas: userData,
+        reality: reality,
+        insight: insight,
+        hard_skill: hard_skill,
+        soft_skill: soft_skill,
+        target: target,
+        timestamp: new Date().toISOString()
+      };
+
+      // SIMPAN ke localStorage dengan key spesifik user
+      let userDiskusi = JSON.parse(localStorage.getItem('rise_diskusi_' + session) || '[]');
+      userDiskusi.push(riseData);
+      localStorage.setItem('rise_diskusi_' + session, JSON.stringify(userDiskusi));
+
+      // Tampilkan pesan sukses
+      alertSuccess.classList.remove('hidden');
+
+      // Arahkan ke halaman diskusi setelah 1.5 detik
+      setTimeout(() => {
+        window.location.href = 'ruangdiskusi.html';
+      }, 1500);
+    });
+
+    // Script untuk Mobile Menu Toggle
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    function attachLogout() {
+      const logoutLinks = document.querySelectorAll('.logout-btn');
+      logoutLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          localStorage.removeItem('rise_session');
+          window.location.href = 'login.html';
+        });
+      });
+    }
+
+    attachLogout();
+
+    mobileBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+
+</body>
+</html>
